@@ -120,7 +120,7 @@ create_raw_table >> create_raw_stream >> create_stage_table >> create_stage_stre
 
 Raw/Stage/Master table
 
-```snowflake
+```postgresql
 CREATE TABLE IF NOT EXISTS INNOWISE_TASK6.PUBLIC.RAW_TABLE (
 "IOS_App_Id" NUMBER(38,0),
 "Title" VARCHAR(16777216),
@@ -144,12 +144,12 @@ CREATE TABLE IF NOT EXISTS INNOWISE_TASK6.PUBLIC.RAW_TABLE (
 ```
 
 Raw/Stage stream
-```snowflake
+```postgresql
 CREATE STREAM IF NOT EXISTS INNOWISE_TASK6.PUBLIC.RAW_STREAM ON TABLE INNOWISE_TASK6.PUBLIC.RAW_TABLE;
 ```
 
 Copy from stream to table
-```snowflake
+```postgresql
 INSERT INTO INNOWISE_TASK6.PUBLIC.STAGE_TABLE
 SELECT "IOS_App_Id",
        "Title",
